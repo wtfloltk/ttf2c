@@ -8,35 +8,29 @@ on:
 
 jobs:
   windows:
-    runs-on: windows-latest
+      runs-on: windows-latest
+    
+      steps:
+        - uses: actions/checkout@v3
+        - name: make
+          run: make
   
-    steps:
-      - uses: actions/checkout@v3
-      - name: configure
-        run: ./configure
-      - name: make
-        run: make
-
-      - name: Upload a Build Artifact
-      - uses: actions/upload-artifact@v4.2.0
-        with:
-          name: exe
-          path: ./*.exe
-
-
-          
-  linux:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: configure
-        run: ./configure
-      - name: make
-        run: make
+        - name: Upload a Build Artifact
+        - uses: actions/upload-artifact@v4.2.0
+          with:
+            name: exe
+            path: ./*.exe
   
-      - uses: actions/upload-artifact@v4.2.0
-      - name: Upload a Build Artifact
-        with:
-          name: linux
-          path: ./*
+    linux:
+      runs-on: ubuntu-latest
+  
+      steps:
+        - uses: actions/checkout@v3
+        - name: make
+          run: make
+    
+        - uses: actions/upload-artifact@v4.2.0
+        - name: Upload a Build Artifact
+          with:
+            name: linux
+            path: ./*
