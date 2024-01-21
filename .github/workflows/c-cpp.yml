@@ -48,6 +48,12 @@ jobs:
                 ../configure
                 make
                 sudo make install
+                git clone --recursive https://github.com/libsdl-org/SDL_ttf.git
+                sudo apt install cmake -y
+                cd SDL_ttf
+                cmake .
+                make
+                sudo make install
                 
           - name: make
             run: make
