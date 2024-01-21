@@ -15,6 +15,7 @@ jobs:
 
           - name: sdl
             run: |
+                bash
                 git clone https://github.com/libsdl-org/SDL.git -b SDL2
                 cd SDL
                 mkdir build
