@@ -20,7 +20,7 @@ jobs:
                 cd SDL
                 mkdir build
                 cd build
-                ..\configure
+                bash ../configure
                 make
                 make install
           
