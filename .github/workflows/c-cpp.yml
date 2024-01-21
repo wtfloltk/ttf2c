@@ -13,9 +13,15 @@ jobs:
         steps:
           - uses: actions/checkout@v3
 
-          - uses: cygwin/cygwin-install-action@v2
-            with:
-              packages: gcc libargp-devel make build-essential git cmake ninja-build libudev-dev g++-6 gcc-6 libsdl libsdl2 sdl sdl2
+          - name: sdl
+            run: |
+                git clone https://github.com/libsdl-org/SDL.git -b SDL2
+                cd SDL
+                mkdir build
+                cd build
+                ../configure
+                make
+                sudo make install
           
           - name: make
             run: make
@@ -32,8 +38,16 @@ jobs:
         steps:
           - uses: actions/checkout@v3
 
-          - name: wah
-            run: sudo apt install gcc lib*argp* make build-essential git cmake ninja-build libudev-dev g++ lib*sdl*1* lib*sdl*2* -y
+          - name: sdl
+            run: |
+                git clone https://github.com/libsdl-org/SDL.git -b SDL2
+                cd SDL
+                mkdir build
+                cd build
+                ../configure
+                make
+                sudo make install
+                
           - name: make
             run: make
 
