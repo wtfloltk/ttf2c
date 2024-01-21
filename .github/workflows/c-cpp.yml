@@ -12,6 +12,11 @@ jobs:
       
         steps:
           - uses: actions/checkout@v3
+
+          - uses: cygwin/cygwin-install-action@v2
+            with:
+              packages: gcc-core libargp-devel make build-essential git cmake ninja-build libudev-dev gcc-6 g++-6
+          
           - name: make
             run: make
     
@@ -26,7 +31,9 @@ jobs:
     
         steps:
           - uses: actions/checkout@v3
-          
+
+          - name: wah
+            run: apt install gcc-core libargp-devel make build-essential git cmake ninja-build libudev-dev gcc-6 g++-6 -y
           - name: make
             run: make
 
