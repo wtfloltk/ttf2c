@@ -51,7 +51,9 @@ jobs:
                 git clone --recursive https://github.com/libsdl-org/SDL_ttf.git
                 sudo apt install cmake -y
                 cd SDL_ttf
-                cmake .
+                mkdir out
+                cd out 
+                cmake ..
                 make
                 sudo make install
                 
